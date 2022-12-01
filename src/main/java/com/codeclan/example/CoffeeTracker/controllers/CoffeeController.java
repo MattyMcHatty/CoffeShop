@@ -31,7 +31,7 @@ public class CoffeeController {
 
     @GetMapping(value = "/coffees")
     public ResponseEntity<List<Coffee>> findCoffeesFilterByStrength(
-            @RequestParam(name="strength", required = false) Long strength) {
+            @RequestParam(name="strength", required = false) Integer strength) {
         if (strength != null) {
             return new ResponseEntity<>(coffeeRepository.findCoffeesByStrength(strength), HttpStatus.OK);
         }
